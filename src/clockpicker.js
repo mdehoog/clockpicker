@@ -620,6 +620,8 @@
 	// The input can be changed by the user
 	// So before we can use this.hours/this.minutes we must update it
 	ClockPicker.prototype.parseInputValue = function(){
+		if(this.timeValue !== undefined && this.options.noInput) return;
+
 		var value = this.timeValue || (!this.options.noInput && this.input.prop('value')) || this.options['default'] || '';
 		this.timeValue = null;
 
